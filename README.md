@@ -149,6 +149,124 @@ button{
 .title2 a{
   color:var(--green);
 }
+header {
+    position: fixed;
+    top: 5%;
+    left: 7%;
+    width: 85vw;
+    padding: 1rem;
+    z-index: 101;
+    transition: 0.3s;
+    box-shadow: var(--box-shadow);
+    background-image: url('img/body-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+header.scrolled {
+    top: 0;
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+}
+
+.header.scrolled a:hover {
+    color: var(--green);
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+}
+
+.navbar a {
+    margin: 0 1rem;
+    font-size: 1rem;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    color: var(--green);
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header .icons {
+    display: flex;
+}
+header .icons i {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000 !important;
+}
+
+#menu-btn {
+    display: none;
+}
+
+header .user-box {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    padding: 1rem;
+    width: 20rem;
+    text-align: center;
+    line-height: 2;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    background: #fff;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: transform 0.3s ease;
+}
+
+.header .user-box .btn {
+    padding: 1.5rem;
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--green);
+    color: #fff;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.header .user-box .btn:hover {
+    background: #000;
+}
+.logout-btn {
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    width: 11rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: var(--green);
+}
+
+.header .user-box.active {
+    transform: scale(1);
+    transition: 0.2s linear;
+}
+
+
                                                #connection.php
 <?php
 $db_name = 'mysql:host=localhost;dbname=shop_db';
@@ -251,4 +369,31 @@ if (isset($_POST['logout'])) {
 }
 ?>
                                                                                                            
+                                              #home php
+<?php
+include 'components/connection.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Coffee - Home Page</title>
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="components/header.css"> <!-- Assuming header CSS is in a separate file -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <?php include 'components/header.php'; ?>
+
+    <!-- Page content goes here -->
+
+    <?php include 'components/alert.php'; ?>
+
+</body>
+</html>
                                               
