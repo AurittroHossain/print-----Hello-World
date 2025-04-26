@@ -299,6 +299,9 @@ header .user-box {
     .form-container {
         width: 100%;
     }
+    form{
+        width: 100%;
+    }
 }
                                                
 
