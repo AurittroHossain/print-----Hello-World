@@ -155,13 +155,9 @@ $db_name = 'mysql:host=localhost;dbname=shop_db';
 $db_user = 'root';
 $db_password = '';
 
-try {
-    $conn = new PDO($db_name, $db_user, $db_password);
+$conn = new PDO($db_name, $db_user, $db_password);
     
-    echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+
 
 function unique_id() {
     $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
