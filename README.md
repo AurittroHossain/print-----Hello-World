@@ -228,7 +228,7 @@ header .user-box {
     transform-origin: top right;
     transition: transform 0.3s ease;
 }
-
+                                      --header--
 .header .user-box .btn {
     padding: 1.5rem;
     display: inline-block;
@@ -266,7 +266,41 @@ header .user-box {
     transform: scale(1);
     transition: 0.2s linear;
 }
+                                               ---media screen---
+@media (max-width: 991px) { 
+    #menu-btn {
+        display: block;
+    }
 
+    .header .flex .navbar {
+        position: absolute;
+        width: 100%;
+        padding: 0 2rem;
+        top: 130%;
+        left: 0;
+        right: 0;
+        display: block;
+        border-top: 1px solid var(--green);
+        background: #fff;
+        transition: 0.3s ease;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header.flex .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header.flex .navbar a {
+        display: block;
+        margin: 2rem;
+        border-top: 1px solid var(--green);
+    }
+
+    .form-container {
+        width: 100%;
+    }
+}
+                                               
 
                                                #connection.php
 <?php
@@ -350,8 +384,8 @@ session_start();
         </div>
 
         <div class="user-box">
-            <p>username: <span><?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest'; ?></span></p>
-            <p>Email: <span><?php echo isset($_SESSION['user_email']) ? $_SESSION['user_email'] : 'No email'; ?></span></p>
+            <p>username: <span><?php //echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest'; ?></span></p>
+            <p>Email: <span><?php //echo isset($_SESSION['user_email']) ? $_SESSION['user_email'] : 'No email'; ?></span></p>
             <a href="login.php" class="btn">login</a>
             <a href="register.php" class="btn">register</a>
 
@@ -374,27 +408,25 @@ if (isset($_POST['logout'])) {
 <?php
 include 'components/connection.php';
 ?>
+<style type="text/css">
+<?php include 'style.css'; ?>
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Coffee - Home Page</title>
-
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="components/header.css"> <!-- Assuming header CSS is in a separate file -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+  <title>Green Coffee - home page</title>
 </head>
+
 <body>
-
-    <?php include 'components/header.php'; ?>
-
-    <!-- Page content goes here -->
-
-    <?php include 'components/alert.php'; ?>
-
+   <?php include 'components/header.php'; ?>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+   <script src="script.js"></script>
+   <?php include 'components/header.php'; ?>
 </body>
 </html>
+
+
                                               
