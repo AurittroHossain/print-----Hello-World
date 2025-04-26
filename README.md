@@ -121,3 +121,31 @@ button{
   outline:none; 
   cursor:pointer;
 }
+.banner {
+  background-image: url('img/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: var(--green);
+  width: 100%;
+  height: 50vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner h1 {
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 3rem;
+}
+
+.title2 {
+  border-top: 1px solid var(--green);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  box-shadow: var(--box-shadow);
+}
+.title2 a{
+  color:var(--green);
+}
