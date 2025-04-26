@@ -228,6 +228,8 @@ header .user-box {
     transform-origin: top right;
     transition: transform 0.3s ease;
 }
+
+                                      
                                       --header--
 .header .user-box .btn {
     padding: 1.5rem;
@@ -266,6 +268,122 @@ header .user-box {
     transform: scale(1);
     transition: 0.2s linear;
 }
+                                               ---footer section---
+.top-footer { 
+width: 100%;
+background: var(--green); 
+padding: 1rem;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+color: #fff;
+}
+
+.top-footer h2 i{
+margin-right: .5rem;
+}
+
+.top-footer input{
+width: 40vw;
+}
+
+/* media query */
+@media screen and (max-width: 768px) {
+.top-footer {
+flex-direction: column;
+text-align: center;
+}
+
+.top-footer input {
+width: 80vw;
+margin-top: 1rem;
+}
+}
+footer {
+background-image: url('img/0.webp'); 
+width: 100%;
+min-height: 73vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+position: relative;
+}
+
+footer .overlay{
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: #000;
+opacity: 0.6;
+}
+.footer-content{
+       position :  absolute
+       top: 10%
+}                                               
+.footer-content .img-box{
+       text-align :center;
+}
+footer .inner-footer {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+align-items: center;
+justify-content: center;
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 3rem 0;
+}
+
+footer .inner-footer .card {
+margin: .5rem;
+color: #fff;
+}
+
+footer .inner-footer .card li {
+cursor: pointer;
+line-height: 1.5rem;
+text-transform: capitalize;
+font-size: 16px;
+}
+
+footer .inner-footer .card li:nth-child(1),
+footer .inner-footer .card p {
+margin-top: 1rem;
+}
+
+footer .inner-footer .card p {
+margin-bottom: 1rem;
+font-size: 16px;
+}
+footer .inner-footer .card .social-links {
+margin-top: 1rem;
+}
+
+footer .inner-footer .card .social-links i {
+width: 50px; 
+height: 50px;
+line-height: 25px; 
+border-radius: 50%;
+background: #fff;
+box-shadow: var(--box-shadow);
+text-align: center;
+cursor: pointer;
+color: var(--green);
+padding: .6rem;
+font-size: 1.3rem;
+}
+
+footer .bottom-footer {
+text-transform: capitalize;
+text-align: center;
+padding: 3rem 0;
+color: #fff;
+padding-bottom: 1rem;
+}
+
                                                ---media screen---
 @media (max-width: 991px) { 
     #menu-btn {
@@ -430,6 +548,96 @@ include 'components/connection.php';
    <?php include 'components/header.php'; ?>
 </body>
 </html>
+                                                  #script.js
+const header = document.querySelector('header');
 
+function fixedNavbar() {
+    header.classList.toggle('scroll', window.pageYOffset > 0);
+}
+fixedNavbar();
+window.addEventListener('scroll', fixedNavbar);
+
+let menu = document.querySelector('#menu-btn');
+let userBtn = document.querySelector('#user-btn');
+let nav = document.querySelector('.navbar');
+let userBox = document.querySelector('.user-box');
+
+menu.addEventListener('click', function() {
+    nav.classList.toggle('active');
+    userBox.classList.remove('active');
+});
+
+userBtn.addEventListener('click', function() {
+    userBox.classList.toggle('active');
+    nav.classList.remove('active');
+});
+                                          #footer.php
+<div class="top-footer">
+    <h2><i class="bx bx-envelope"></i> Sign Up For Newsletter</h2>
+    <div class="input-field">
+        <input type="text" name="" placeholder="email address...">
+        <button class="btn">subscribe</button>
+    </div>
+</div>
+
+<footer>
+    <div class="overlay"></div>
+    <div class="footer-content">
+        <div class="img-box">
+            <img src="img/logo2.png" alt="Logo">
+        </div>
+        <div class="inner-footer">
+            <div class="card">
+                <h3>about us</h3>
+                <ul>
+                    <li>about us</li>
+                    <li>our difference</li>
+                    <li>community matters</li>
+                    <li>press</li>
+                    <li>blog</li>
+                    <li>bouqs video</li>
+                </ul>
+            </div>
+           <div class="card">
+                <h3>services</h3>
+                <ul>
+                    <li>order</li>
+                    <li>help center</li>
+                    <li>shipping</li>
+                    <li>term of use</li>
+                    <li>account detail</li>
+                    <li>my account</li>
+                </ul>
+            </div>
+             <div class="card">
+                <h3>local</h3>
+                <ul>
+                    <li>allahbad</li>
+                    <li>mumbai</li>
+                    <li>new delhi</li>
+                    <li>old delhi</li>
+                    <li>new yourk</li>
+                    <li>los angeles</li>
+                </ul>
+            </div>
+             <div class="card">
+                 <h3>newsletter</h3>
+                 <p>Sign Up For Newsletter</p>
+
+                 <div class="social-links">
+                 <i class="bx bxl-instagram"></i>
+                 <i class="bx bxl-twitter"></i>
+                 <i class="bx bxl-behance"></i>
+                 <i class="bx bxl-youtube"></i>
+                 <i class="bx bxl-whatsapp"></i>
+              </div>
+              
+            </div>         
+        </div>
+    </div>
+    <div class="bottom-footer">
+         <p>all right reserved <p>
+</footer>
+                                          
 
                                               
